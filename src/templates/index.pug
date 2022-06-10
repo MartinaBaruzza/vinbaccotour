@@ -1,0 +1,462 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorStyles = ['tiny-slider/dist/tiny-slider.css', 'flatpickr/dist/flatpickr.min.css']
+  - var vendorScripts = ['tiny-slider/dist/min/tiny-slider.js', 'flatpickr/dist/flatpickr.min.js']
+  - var parentMenu = 'Home'
+  - var pageTitle = 'vinbaccotour'
+
+//- Navbar
+block navbar
+  include partials/navbar-city-guide
+
+//- Page Content
+block content
+
+  // Hero
+  section.container.py-5.mt-5.mb-lg-3
+    .row.align-items-center.mt-md-2
+      .col-lg-7.order-lg-2.mb-lg-0.mb-4.pb-2.pb-lg-0
+        img(src='img/city-guide/home/hero-img.jpg' width='746' alt='Hero image').d-block.mx-auto
+      .col-lg-5.order-lg-1.pe-lg-0
+        h1.display-5.mb-4.me-lg-n5.text-lg-start.text-center.mb-4
+          | Con vinbacco scegli la tua
+          span.dropdown.d-inline-block
+            a(href='#' role='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false').dropdown-toggle.text-decoration-none
+              | Destinazione
+            span.dropdown-menu.dropdown-menu-end.my-1
+              a(href='#').dropdown-item.fs-base.fw-bold Veneto
+              a(href='regionetoscana.html').dropdown-item.fs-base.fw-bold Toscana
+              a(href='#').dropdown-item.fs-base.fw-bold Lombardia
+              a(href='#').dropdown-item.fs-base.fw-bold Piemonte
+              a(href='#').dropdown-item.fs-base.fw-bold Emilia romagna
+        p.text-lg-start.text-center.mb-4.mb-lg-5.fs-lg Il tuo Tour su misura Vinbacco, il bello di scoprire.
+
+        // Search form
+        .me-lg-n5
+          form.form-group.d-block.d-md-flex.position-relative.rounded-md-pill.me-lg-n5
+            .input-group.input-group-lg.border-end-md
+              span.input-group-text.text-muted.rounded-pill.ps-3
+                i.fi-search
+              input(type='text' placeholder='Dove vuoi andare?').form-control
+            hr.d-md-none.my-2
+            .d-sm-flex
+              .dropdown.w-100.mb-sm-0.mb-3(data-bs-toggle='select')
+                button(type='button' data-bs-toggle='dropdown').btn.btn-link.btn-lg.dropdown-toggle.ps-2.ps-sm-3
+                  i.fi-list.me-2
+                  span.dropdown-toggle-label Tipologia
+                input(type='hidden')
+                ul.dropdown-menu
+                  li: a(href='#').dropdown-item
+                    i.fi-bed.fs-lg.opacity-60.me-2
+                    span.dropdown-item-label Pranzo
+                  li: a(href='#').dropdown-item
+                    i.fi-cafe.fs-lg.opacity-60.me-2
+                    span.dropdown-item-label Pernottamento
+                  li: a(href='#').dropdown-item
+                    i.fi-shopping-bag.fs-lg.opacity-60.me-2
+                    span.dropdown-item-label Pic nic
+
+              button(type='button').btn.btn-primary.btn-lg.rounded-pill.w-100.w-md-auto.ms-sm-3 Prenota
+
+
+  // Categories
+  section.container.d-flex.flex-wrap.flex-column.flex-sm-row.pb-5.mb-md-3
+    a(href='city-guide-catalog.html').icon-box.card.flex-row.align-items-center.flex-shrink-0.card-hover.border-0.shadow-sm.rounded-pill.py-2.ps-2.pe-4.mb-2.mb-sm-3.me-sm-3.me-xxl-4
+      .icon-box-media.bg-faded-accent.text-accent.rounded-circle.me-2
+        i.fi-bed
+      h3.icon-box-title.fs-sm.ps-1.pe-2.mb-0 Lasciati consigliare
+    a(href='city-guide-catalog.html').icon-box.card.flex-row.align-items-center.flex-shrink-0.card-hover.border-0.shadow-sm.rounded-pill.py-2.ps-2.pe-4.mb-2.mb-sm-3.me-sm-3.me-xxl-4
+      .icon-box-media.bg-faded-warning.text-warning.rounded-circle.me-2
+        i.fi-cafe
+      h3.icon-box-title.fs-sm.ps-1.pe-2.mb-0 Regala esperienza
+    a(href='city-guide-catalog.html').icon-box.card.flex-row.align-items-center.flex-shrink-0.card-hover.border-0.shadow-sm.rounded-pill.py-2.ps-2.pe-4.mb-2.mb-sm-3.me-sm-3.me-xxl-4
+      .icon-box-media.bg-faded-primary.text-primary.rounded-circle.me-2
+        i.fi-shopping-bag
+      h3.icon-box-title.fs-sm.ps-1.pe-2.mb-0 Scegli le cantine
+
+  // Top offers (carousel)
+  section.container.mb-5.pb-md-4
+    .d-flex.align-items-center.justify-content-between.mb-3
+      h2.h3.mb-0 Scegli le cantine
+      a(href='cantinegenerale.html').btn.btn-link.fw-normal.p-0
+        | Scopri le cantine
+        i.fi-arrow-long-right.ms-2
+    .tns-carousel-wrapper.tns-controls-outside-xxl.tns-nav-outside.tns-nav-outside-flush.mx-n2
+      .tns-carousel-inner.row.gx-4.mx-0.pt-3.pb-4(data-carousel-options='{"items": 4, "responsive": {"0":{"items":1},"500":{"items":2},"768":{"items":3},"992":{"items":4}}}')
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 €20 a persona
+
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/01.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary Cantine
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Tour Val di Chiana
+              p.mb-2.fs-sm.text-muted Il territorio ed i richiami leggendari, insieme alla passione per il vino, sono gli ingredienti principali ...
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | Chianti, Toscana
+
+ 
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 €20 a persona
+
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/01.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary Cantine
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Tour Val di Chiana
+              p.mb-2.fs-sm.text-muted Il territorio ed i richiami leggendari, insieme alla passione per il vino, sono gli ingredienti principali ...
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | Chianti, Toscana
+
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 €20 a persona
+
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/01.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary Cantine
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Tour Val di Chiana
+              p.mb-2.fs-sm.text-muted Il territorio ed i richiami leggendari, insieme alla passione per il vino, sono gli ingredienti principali ...
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | Chianti, Toscana
+
+
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 €20 a persona
+
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/01.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary Cantine
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Tour Val di Chiana
+              p.mb-2.fs-sm.text-muted Il territorio ed i richiami leggendari, insieme alla passione per il vino, sono gli ingredienti principali ...
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | Chianti, Toscana
+
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 €20 a persona
+
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/01.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary Cantine
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Tour Val di Chiana
+              p.mb-2.fs-sm.text-muted Il territorio ed i richiami leggendari, insieme alla passione per il vino, sono gli ingredienti principali ...
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | Chianti, Toscana
+
+
+        // Item
+        .col
+          .card.shadow-sm.card-hover.border-0.h-100
+            .card-img-top.card-img-hover
+              a(href='real-estate-single-v1.html').img-overlay
+              .position-absolute.start-0.top-0.pt-3.ps-3
+                span.d-table.badge.bg-success.mb-1 €20 a persona
+
+              .content-overlay.end-0.top-0.pt-3.pe-3
+                button(type='button' data-bs-toggle='tooltip' data-bs-placement='left' title='Add to Wishlist').btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle
+                  i.fi-heart
+              img(src='img/real-estate/catalog/01.jpg' alt='Image')
+            .card-body.position-relative.pb-3
+              h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary Cantine
+              h3.h6.mb-2.fs-base
+                a(href='real-estate-single-v1.html').nav-link.stretched-link Tour Val di Chiana
+              p.mb-2.fs-sm.text-muted Il territorio ed i richiami leggendari, insieme alla passione per il vino, sono gli ingredienti principali ...
+              .fw-bold
+                i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70
+                | Chianti, Toscana
+
+
+
+
+  // Recently added
+  section.container.pb-4.pt-1.mb-5
+    .d-flex.align-items-end.align-items-lg-center.justify-content-between.mb-4.pb-md-2
+      .d-flex.w-100.align-items-center.justify-content-between.justify-content-lg-start
+        h2.h3.mb-0.me-md-4 Come conoscere tutte le meraviglie d’Italia?
+
+
+
+      a(href='real-estate-catalog-rent.html').btn.btn-link.fw-normal.d-none.d-lg-block.p-0
+        | Scopri tutte le regioni
+        i.fi-arrow-long-right.ms-2
+    .row.g-4
+      .col-md-6
+        .card.bg-size-cover.bg-position-center.border-0.overflow-hidden.h-100(style='background-image: url(img/real-estate/recent/01.jpg);')
+          span.img-gradient-overlay
+          .card-body.content-overlay.pb-0
+            .d-flex
+
+          .card-footer.content-overlay.border-0.pt-0.pb-4
+            .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+              a(href='real-estate-single-v1.html').text-decoration-none.text-light.pe-2
+                .fs-sm.text.pt-2.mb-1 A partire da €20
+                h3.h8.text-light.mb-1 TOSCANA
+
+              .btn-group.ms-n2.ms-sm-0.mt-3
+                a(href='real-estate-single-v1.html' style='height: 2.75rem;').btn.btn-primary.px-3 Scopri il tour
+                button(type='button').btn.btn-primary.btn-icon.border-end-0.border-top-0.border-bottom-0.border-light.fs-sm
+
+      .col-md-6
+        .card.bg-size-cover.bg-position-center.border-0.overflow-hidden.mb-4(style='background-image: url(img/real-estate/recent/02.jpg);')
+          span.img-gradient-overlay
+          .card-body.content-overlay.pb-0
+02
+          .card-footer.content-overlay.border-0.pt-0.pb-4
+            .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+              a(href='real-estate-single-v1.html').text-decoration-none.text-light.pe-2
+                .fs-sm.text.pt-2.mb-1 A partire da €20
+                h3.h8.text-light.mb-1 LOMBARDIA
+
+              .btn-group.ms-n2.ms-sm-0.mt-3
+                a(href='real-estate-single-v1.html' style='height: 2.75rem;').btn.btn-primary.px-3 Scopri il tour
+                button(type='button').btn.btn-primary.btn-icon.border-end-0.border-top-0.border-bottom-0.border-light.fs-sm
+
+        .card.bg-size-cover.bg-position-center.border-0.overflow-hidden(style='background-image: url(img/real-estate/recent/03.jpg);')
+          span.img-gradient-overlay
+          .card-body.content-overlay.pb-0
+
+          .card-footer.content-overlay.border-0.pt-0.pb-4
+            .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+              a(href='real-estate-single-v1.html').text-decoration-none.text-light.pe-2
+                a(href='real-estate-single-v1.html').text-decoration-none.text-light.pe-2
+          .card-footer.content-overlay.border-0.pt-0.pb-4
+            .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+              a(href='real-estate-single-v1.html').text-decoration-none.text-light.pe-2
+                .fs-sm.text.pt-2.mb-1 A partire da €20
+                h3.h8.text-light.mb-1 PIEMONTE
+
+              .btn-group.ms-n2.ms-sm-0.mt-3
+                a(href='real-estate-single-v1.html' style='height: 2.75rem;').btn.btn-primary.px-3 Scopri il tour
+                button(type='button').btn.btn-primary.btn-icon.border-end-0.border-top-0.border-bottom-0.border-light.fs-sm
+
+
+  // Services
+  section.container.mb-5.mt-n2.mt-lg-0
+    .tns-carousel-wrapper.tns-nav-outside.tns-nav-outside-flush.mx-n2
+      .tns-carousel-inner.row.gx-2.mx-0.py-2(data-carousel-options='{"items": 2, "controls": false, "responsive": {"0":{"items":1},"500":{"items":2},"768":{"items":3}, "768":{"items":4}}}')
+        .col
+          .card.card-hover.border-0.h-100.pb-2.pb-sm-3.px-sm-3.text-center
+            img(src='img/real-estate/illustrations/buy.png' width='256' alt='Illustration').d-block.mx-auto.my-2
+
+        .col
+          .card.card-hover.border-0.h-100.pb-2.pb-sm-3.px-sm-3.text-center
+            img(src='img/real-estate/illustrations/buy.png' width='256' alt='Illustration').d-block.mx-auto.my-2
+
+        .col
+          .card.card-hover.border-0.h-100.pb-2.pb-sm-3.px-sm-3.text-center
+            img(src='img/real-estate/illustrations/buy.png' width='256' alt='Illustration').d-block.mx-auto.my-2
+
+        .col
+          .card.card-hover.border-0.h-100.pb-2.pb-sm-3.px-sm-3.text-center
+            img(src='img/real-estate/illustrations/buy.png' width='256' alt='Illustration').d-block.mx-auto.my-2
+
+
+
+  // Top agents (lnked carousel)
+  section.container.mb-5.pb-2.pb-lg-4
+    h2.h3.mb-4.pb-3.text-center.text-md-start Dicono di noi
+    .tns-carousel-wrapper
+      .tns-carousel-inner(data-carousel-options='{"items": 1, "mode": "gallery", "controlsContainer": "#agents-carousel-controls", "nav": false}')
+        div
+          .row.align-items-center
+            .col-xl-4.d-none.d-xl-block
+
+
+            .col-xl-4.col-md-7.col-sm-8.px-4.px-sm-3.px-md-0.ms-md-n4.mt-n5.mt-sm-0.py-3
+              .card.border-0.shadow-sm.ms-sm-n5
+                blockquote.blockquote.card-body
+                  h4(style='max-width: 22rem;') &quot;I will select the best accommodation for you&quot;
+                  p.d-sm-none.d-lg-block Amet libero morbi venenatis ut est. Iaculis leo ultricies nunc id ante adipiscing. Vel metus odio at faucibus ac. Neque id placerat et id ut. Scelerisque eu mi ullamcorper sit urna. Est volutpat dignissim nec.
+                  footer.d-flex.justify-content-between
+                    .pe-3
+
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-facebook
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-twitter
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-linkedin
+                    div
+                      +star-rating(5)
+                      .text-muted.fs-sm.mt-1 45 reviews
+
+        div
+          .row.align-items-center
+            .col-xl-4.d-none.d-xl-block
+
+
+            .col-xl-4.col-md-7.col-sm-8.px-4.px-sm-3.px-md-0.ms-md-n4.mt-n5.mt-sm-0.py-3
+              .card.border-0.shadow-sm.ms-sm-n5
+                blockquote.blockquote.card-body
+                  h4(style='max-width: 22rem;') &quot;I will select the best accommodation for you&quot;
+                  p.d-sm-none.d-lg-block Amet libero morbi venenatis ut est. Iaculis leo ultricies nunc id ante adipiscing. Vel metus odio at faucibus ac. Neque id placerat et id ut. Scelerisque eu mi ullamcorper sit urna. Est volutpat dignissim nec.
+                  footer.d-flex.justify-content-between
+                    .pe-3
+
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-facebook
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-twitter
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-linkedin
+                    div
+                      +star-rating(5)
+                      .text-muted.fs-sm.mt-1 45 reviews
+
+        div
+          .row.align-items-center
+            .col-xl-4.d-none.d-xl-block
+
+
+            .col-xl-4.col-md-7.col-sm-8.px-4.px-sm-3.px-md-0.ms-md-n4.mt-n5.mt-sm-0.py-3
+              .card.border-0.shadow-sm.ms-sm-n5
+                blockquote.blockquote.card-body
+                  h4(style='max-width: 22rem;') &quot;I will select the best accommodation for you&quot;
+                  p.d-sm-none.d-lg-block Amet libero morbi venenatis ut est. Iaculis leo ultricies nunc id ante adipiscing. Vel metus odio at faucibus ac. Neque id placerat et id ut. Scelerisque eu mi ullamcorper sit urna. Est volutpat dignissim nec.
+                  footer.d-flex.justify-content-between
+                    .pe-3
+
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-facebook
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-twitter
+                      a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.me-2.mb-2
+                        i.fi-linkedin
+                    div
+                      +star-rating(5)
+                      .text-muted.fs-sm.mt-1 45 reviews
+
+
+
+    #agents-carousel-controls.tns-carousel-controls.justify-content-center.justify-content-center
+      button(type='button').mx-2
+        i.fi-chevron-left
+      button(type='button').mx-2
+        i.fi-chevron-right
+
+  // Blog recent
+  section.container.mb-5.pb-lg-5.pb-4
+    h2.h3.mb-4.pb-2.text-md-start.text-center
+      | Gli ultimi tour acquistati
+    .row.gy-5
+      .col-lg-7
+
+        // Blog item
+        article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+        // Blog item
+        article.card.border-0.shadow-sm.card-hover.card-horizontal.mb-4
+          a(href='real-estate-blog-single.html' style='background-image: url(img/real-estate/blog/06.jpg);').card-img-top
+          .card-body
+            a(href='#').fs-xs.text-uppercase.text-decoration-none Industry Views
+            h3.fs-base.pt-1.mb-2
+              a(href='real-estate-blog-single.html').nav-link
+                | 7 Tips for Achieving Maximum Coziness
+            p.fs-sm.text-muted Eget eu nunc aenean at imperdiet. Pellentesque in massa tincidunt congue. Nulla congue egestas mi volutpat varius...
+            a(href='#').d-flex.align-items-center.text-decoration-none
+              img(src='img/avatars/08.jpg' width='44' alt='Avatar').rounded-circle
+              .ps-2
+                h6.fs-sm.text-nav.lh-base.mb-1 Darrell Steward
+                .d-flex.text-body.fs-xs
+                  span.me-2.pe-1
+                    i.fi-calendar-alt.opacity-70.me-1
+                    | Dec 27
+                  span
+                    i.fi-chat-circle.opacity-70.me-1
+                    | 3 comment
+
+        .pt-2: a(href='real-estate-blog.html').btn.btn-lg.btn-outline-primary.w-sm-auto.w-100 More blog posts
+
+      .col-1.d-lg-block.d-none: hr.hr-vertical.mx-auto
+
+      .col-lg-4
+        .row.row-cols-lg-1.row-cols-md-2.row-cols-1.gy-5.text-md-start.text-center
+
+          // Mail subscription
+          .col.pb-lg-2
+            h3.h5
+              | Sign up for our newsletter
+            p.mb-4
+              | Enter your email to receive the latest news and updates from Finder.
+            form(style='max-width: 26rem;').form-group.mx-auto
+              .input-group
+                span.input-group-text.text-muted
+                  i.fi-mail
+                input(type='email' placeholder='Your Email').form-control
+              button(type='button').btn.btn-primary
+                | Subscribe
+
+          // Following
+          .col
+            h3.h5
+              | Follow us
+            p.mb-4
+              | Get the latest news and inspiration about the housing market.
+            .ms-n2.mt-n2
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mt-2
+                i.fi-instagram
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mt-2
+                i.fi-twitter
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mt-2
+                i.fi-whatsapp
+              a(href='#').btn.btn-icon.btn-light-primary.btn-xs.shadow-sm.rounded-circle.ms-2.mt-2
+                i.fi-telegram
+
+
+
+
+//- Footer
+block footer
+  include partials/footer-city-guide

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vinbaccotour | scegli le cantine</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="../safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="../vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="../vendor/prismjs/themes/prism.css"/>
+    <link rel="stylesheet" media="screen" href="../vendor/prismjs/plugins/toolbar/prism-toolbar.css"/>
+    <link rel="stylesheet" media="screen" href="../vendor/prismjs/plugins/line-numbers/prism-line-numbers.css"/>
+    <link rel="stylesheet" media="screen" href="../vendor/flatpickr/dist/flatpickr.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="../css/theme.min.css">
+
+
+
+
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+     
+
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/nouislider/dist/nouislider.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body class="fixed-bottom-btn">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <!-- Sign In Modal-->
+      <div class="modal fade" id="signin-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Hey there!<br>Welcome back.</h2><img class="d-block mx-auto" src="img/signin-modal/signin.svg" width="344" alt="Illustartion">
+                  <div class="mt-4 mt-sm-5">Don't have an account? <a href="#signup-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign up here</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label mb-2" for="signin-email">Email address</label>
+                      <input class="form-control" type="email" id="signin-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <div class="d-flex align-items-center justify-content-between mb-2">
+                        <label class="form-label mb-0" for="signin-password">Password</label><a class="fs-sm" href="#">Forgot password?</a>
+                      </div>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signin-password" placeholder="Enter password" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg w-100" type="submit">Sign in         </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sign Up Modal-->
+      <div class="modal fade" id="signup-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered p-2 my-0 mx-auto" style="max-width: 950px;">
+          <div class="modal-content">
+            <div class="modal-body px-0 py-2 py-sm-0">
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal"></button>
+              <div class="row mx-0 align-items-center">
+                <div class="col-md-6 border-end-md p-4 p-sm-5">
+                  <h2 class="h3 mb-4 mb-sm-5">Join Finder.<br>Get premium benefits:</h2>
+                  <ul class="list-unstyled mb-4 mb-sm-5">
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Add and promote your listings</span></li>
+                    <li class="d-flex mb-2"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Easily manage your wishlist</span></li>
+                    <li class="d-flex mb-0"><i class="fi-check-circle text-primary mt-1 me-2"></i><span>Leave reviews</span></li>
+                  </ul><img class="d-block mx-auto" src="img/signin-modal/signup.svg" width="344" alt="Illustartion">
+                  <div class="mt-sm-4 pt-md-3">Already have an account? <a href="#signin-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Sign in</a></div>
+                </div>
+                <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5"><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Sign in with Google</a><a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Sign in with Facebook</a>
+                  <div class="d-flex align-items-center py-3 mb-3">
+                    <hr class="w-100">
+                    <div class="px-3">Or</div>
+                    <hr class="w-100">
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-name">Full name</label>
+                      <input class="form-control" type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-email">Email address</label>
+                      <input class="form-control" type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password">Password <span class='fs-sm text-muted'>min. 8 char</span></label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="signup-password-confirm">Confirm password</label>
+                      <div class="password-toggle">
+                        <input class="form-control" type="password" id="signup-password-confirm" minlength="8" required>
+                        <label class="password-toggle-btn" aria-label="Show/hide password">
+                          <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-check mb-4">
+                      <input class="form-check-input" type="checkbox" id="agree-to-terms" required>
+                      <label class="form-check-label" for="agree-to-terms">By joining, I agree to the <a href='#'>Terms of use</a> and <a href='#'>Privacy policy</a></label>
+                    </div>
+                    <button class="btn btn-primary btn-lg w-100" type="submit">Sign up         </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+
+
+
+            <!-- Navbar-->
+            <header class="navbar navbar-expand-lg navbar-light fixed-top" data-scroll-header>
+              <div class="container"><a class="navbar-brand me-3 me-xl-4" href="index.html"><img class="d-block" src="img/logo/logo-dark.svg" width="116" alt="Finder"></a>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Carrello</a><a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="city-guide-add-business.html"><i class="fi-plus me-2"></i>Registra<span class='d-none d-sm-inline'> partner</span></a>
+                <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+                  <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
+                    <!-- Menu items-->
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Regioni tour</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="city-guide-home-v1.html">Toscana</a></li>
+                        <li><a class="dropdown-item" href="city-guide-home-v1.html">Piemonte</a></li>
+                        <li><a class="dropdown-item" href="city-guide-home-v1.html">Veneto</a></li>
+                        <li><a class="dropdown-item" href="city-guide-home-v1.html">Lombardia</a></li>
+                        <li><a class="dropdown-item" href="city-guide-home-v1.html">Sicilia</a></li>
+                        <li><a class="dropdown-item" href="city-guide-home-v1.html">Umbria</a></li>
+                        <li><a class="dropdown-item" href="city-guide-home-v1.html">Marche</a></li>
+                        <li><a class="dropdown-item" href="city-guide-home-v1.html">Lazio</a></li>
+                        <li><a class="dropdown-item" href="city-guide-home-v1.html">Emilia Romagna</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lasciati consigliare</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="city-guide-catalog.html">Regala esperienza</a></li>
+                        <li><a class="dropdown-item" href="city-guide-single.html">Scegli le cantine</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">La nostra storia</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contatti</a></li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Check out</a></li>
+                  </ul>
+                </div>
+              </div>
+            </header>
+
+      <!-- Page header-->
+      <section class="mt-5 pt-4">
+
+
+      <!-- Page content-->
+      <section class="jarallax bg-dark zindex-1 py-xxl-5" data-jarallax data-speed="0.5"><span class="img-overlay bg-transparent opacity-100"></span>
+        <div class="jarallax-img" style="background-image: url(img/city-guide/home/scopriregionicop.jpg);"></div>
+        <div class="content-overlay container py-md-5">
+          <div class="mt-5 mb-md-5 py-5">
+            <div class="col-xl-6 col-lg-8 col-md-10 mx-auto mb-sm-5 mb-4 px-0 text-center">
+              <h1 class="display-5 text-light mt-sm-5 my-4">Scopri tutte le regioni</h1>
+              <p class="fs-lg text-white">Tantissime regioni e più di 100 cantine sono pronte ad accoglierti.</p>
+            </div>
+    
+
+      </section>
+
+
+
+        <!-- Top properties-->
+        <section class="container-fluid px-xxl-4 mb-5 pb-lg-4">
+
+          <!-- Carousel-->
+          <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush mx-n2">
+            <div class="tns-carousel-inner row gx-4 mx-0" data-carousel-options="{&quot;nav&quot;: false, &quot;autoHeight&quot;: true, &quot;controlsContainer&quot;: &quot;#carousel-controls-tp&quot;, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;1320&quot;:{&quot;items&quot;:2}}}">
+              <!-- Carousel item-->
+              <div class="col">
+                <div class="row gy-md-0 gy-sm-4 gy-3 gx-sm-4 gx-0">
+                  <div class="col-md-7"><a class="text-decoration-none text-light card bg-size-cover bg-position-center border-0 overflow-hidden h-100" href="real-estate-single-v1.html" style="background-image: url(img/real-estate/top-properties/01.jpg); min-height: 18.75rem;"><span class="img-gradient-overlay"></span>
+                      <div class="card-body content-overlay pb-0"></div>
+                      <div class="card-footer content-overlay border-0 pt-0 pb-4">
+                        <div class="d-sm-flex justify-content-between align-items-end pt-5 mt-2 mt-sm-5">
+                          <div class="pe-2">
+
+                            <h3 class="h7 text-light mb-1">Toscana</h3>
+                            <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>€20/persona</div>
+                          </div>
+                        </div>
+                      </div></a></div>
+                  <div class="col-md-5"><a class="card border-0 overflow-hidden mb-sm-4 mb-3 text-decoration-none text-light" href="real-estate-single-v2.html">
+                      <div class="card-body p-0 position-relative"><img src="img/real-estate/top-properties/02.jpg" alt="Article image"><span class="img-gradient-overlay zindex-1"></span>
+                        <div class="position-absolute start-0 bottom-0 m-n1 p-4 zindex-5">
+
+                          <h3 class="h7 text-light mb-1">Piemonte</h3>
+                          <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>€20/persona</div>
+                        </div>
+                      </div></a><a class="card border-0 overflow-hidden text-decoration-none text-light" href="real-estate-single-v2.html">
+                      <div class="card-body p-0 position-relative"><img src="img/real-estate/top-properties/03.jpg" alt="Article image"><span class="img-gradient-overlay zindex-1"></span>
+                        <div class="position-absolute start-0 bottom-0 m-n1 p-4 zindex-5">
+
+                          <h3 class="h7 text-light mb-1">Veneto</h3>
+                          <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>€20/persona</div>
+                        </div>
+                      </div></a></div>
+                </div>
+              </div>
+              <!-- Carousel item-->
+              <div class="col">
+                <div class="row gy-md-0 gy-sm-4 gy-3 gx-sm-4 gx-0">
+                  <div class="col-md-7"><a class="text-decoration-none text-light card bg-size-cover bg-position-center border-0 overflow-hidden h-100" href="real-estate-single-v1.html" style="background-image: url(img/real-estate/top-properties/04.jpg); min-height: 18.75rem;"><span class="img-gradient-overlay"></span>
+                      <div class="card-body content-overlay pb-0"></div>
+                      <div class="card-footer content-overlay border-0 pt-0 pb-4">
+                        <div class="d-sm-flex justify-content-between align-items-end pt-5 mt-2 mt-sm-5">
+                          <div class="pe-2">
+
+                            <h3 class="h7 text-light mb-1">Lazio</h3>
+                            <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>€30/persona</div>
+                          </div>
+                        </div>
+                      </div></a></div>
+                  <div class="col-md-5"><a class="card border-0 overflow-hidden mb-sm-4 mb-3 text-decoration-none text-light" href="real-estate-single-v2.html">
+                      <div class="card-body p-0 position-relative"><img src="img/real-estate/top-properties/05.jpg" alt="Article image"><span class="img-gradient-overlay zindex-1"></span>
+                        <div class="position-absolute start-0 bottom-0 m-n1 p-4 zindex-5">
+
+                          <h3 class="h7 text-light mb-1">Umbria</h3>
+                          <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>€30/persona</div>
+                        </div>
+                      </div></a><a class="card border-0 overflow-hidden text-decoration-none text-light" href="real-estate-single-v2.html">
+                      <div class="card-body p-0 position-relative"><img src="img/real-estate/top-properties/06.jpg" alt="Article image"><span class="img-gradient-overlay zindex-1"></span>
+                        <div class="position-absolute start-0 bottom-0 m-n1 p-4 zindex-5">
+
+                          <h3 class="h7 text-light mb-1">Emilia Romagna</h3>
+                          <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>€30/persona</div>
+                        </div>
+                      </div></a></div>
+                </div>
+              </div>
+              <!-- Carousel item-->
+              <div class="col">
+                <div class="row gy-md-0 gy-sm-4 gy-3 gx-sm-4 gx-0">
+                  <div class="col-md-7"><a class="text-decoration-none text-light card bg-size-cover bg-position-center border-0 overflow-hidden h-100" href="real-estate-single-v1.html" style="background-image: url(img/real-estate/top-properties/07.jpg); min-height: 18.75rem;"><span class="img-gradient-overlay"></span>
+                      <div class="card-body content-overlay pb-0"></div>
+                      <div class="card-footer content-overlay border-0 pt-0 pb-4">
+                        <div class="d-sm-flex justify-content-between align-items-end pt-5 mt-2 mt-sm-5">
+                          <div class="pe-2">
+
+                            <h3 class="h7 text-light mb-1">Lombardia</h3>
+                            <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>€30/persona</div>
+                          </div>
+                        </div>
+                      </div></a></div>
+                  <div class="col-md-5"><a class="card border-0 overflow-hidden mb-sm-4 mb-3 text-decoration-none text-light" href="real-estate-single-v2.html">
+                      <div class="card-body p-0 position-relative"><img src="img/real-estate/top-properties/08.jpg" alt="Article image"><span class="img-gradient-overlay zindex-1"></span>
+                        <div class="position-absolute start-0 bottom-0 m-n1 p-4 zindex-5">
+
+                          <h3 class="h5 text-light mb-1">Sicilia</h3>
+                          <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>€25/persona</div>
+                        </div>
+                      </div></a><a class="card border-0 overflow-hidden text-decoration-none text-light" href="real-estate-single-v2.html">
+                      <div class="card-body p-0 position-relative"><img src="img/real-estate/top-properties/09.jpg" alt="Article image"><span class="img-gradient-overlay zindex-1"></span>
+                        <div class="position-absolute start-0 bottom-0 m-n1 p-4 zindex-5">
+
+                          <h3 class="h7 text-light mb-1">Marche</h3>
+                          <div class="fs-sm opacity-70"><i class="fi-map-pin me-1"></i>€25/persona</div>
+                        </div>
+                      </div></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Carousel custom controls-->
+          <div class="tns-carousel-controls justify-content-center pt-md-2 mt-4" id="carousel-controls-tp">
+            <button class="me-3" type="button"><i class="fi-chevron-left fs-xs"></i></button>
+            <button type="button"><i class="fi-chevron-right fs-xs"></i></button>
+          </div>
+        </section>
+
+
+      <!-- FAQ-->
+      <section class="container mb-5 pb-lg-5">
+        <h2 class="mb-sm-4 pb-md-2 text-center">Le domande frequenti</h2>
+        <!-- FAQ grid-->
+        <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 g-sm-4 g-0">
+          <!-- Grid item-->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <div class="card-body">
+                <h3 class="h5 text-primary">01. Le cantine sono in tutta Italia?</h3>Si abbiamo selezionato per te le migliori cantine in alcune delle più importanti Regioni in Italia per farti vivere un’esperienza unica di degustazione. </a>
+              </div>
+            </div>
+          </div>
+          <!-- Grid item-->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <div class="card-body">
+                <h3 class="h5 text-primary">02. Il servizio di Vinbacco ha costi aggiuntivi?</h3>No Vinbacco non ha costi aggiuntivi ed il prezzo presente nel sito è il totale, inclusa IVA .</a>
+              </div>
+            </div>
+          </div>
+          <!-- Grid item-->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <div class="card-body">
+                <h3 class="h5 text-primary">03. Come funziona per il pagamento?</h3>Una volta confermato il tour andrà versato un acconto per bloccare l’esperienza e la differenza la potrai pagare direttamente in cantina il giorno del Tour. </a>
+              </div>
+            </div>
+          </div>
+          <!-- Grid item-->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <div class="card-body">
+                <h3 class="h5 text-primary">04. Di cosa si occupa Vinbacco?</h3>Il nostro obiettivo è quello di valorizzare le Cantine italiane che ogni amante del vino dovrebbe conoscere. Offriamo incredibili esperienze multisensoriali, per scoprire da vicino il vino. </a>
+              </div>
+            </div>
+          </div>
+          <!-- Grid item-->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <div class="card-body">
+                <h3 class="h5 text-primary">05. Posso annullare il tour?</h3>Certamente è possibile, ogni cantina ha diverse modalità di annullamento.</a>
+              </div>
+            </div>
+          </div>
+          <!-- Grid item-->
+          <div class="col">
+            <div class="card border-0 h-100">
+              <div class="card-body">
+                <h3 class="h5 text-primary">06. Quanto costa il tour?</h3>Abbiamo diversi tour per tutti i gusti, ti basta scegliere la regione, preferenze di vino ed al resto ci penserà Vinbacco! Prenotare è semplice ti basta un click! </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="jarallax bg-dark zindex-1 py-xxl-5" data-jarallax data-speed="0.5"><span class="img-overlay bg-transparent opacity-100"></span>
+        <div class="jarallax-img" style="background-image: url(img/city-guide/home/imgfooter.jpg);"></div>
+        <div class="content-overlay container py-md-5">
+          <div class="mt-5 mb-md-5 py-5">
+            <div class="col-xl-6 col-lg-8 col-md-10 mx-auto mb-sm-5 mb-4 px-0 text-center">
+              <h1 class="display-5 text-light mt-sm-5 my-4">Oltre 150 tour in Italia</h1>
+              <p class="fs-lg text-white">Tantissime regioni e più di 100 cantine sono pronte ad accoglierti.</p>
+            </div>
+    
+
+      </section>
+
+
+
+
+
+
+      
+    
+
+
+
+
+
+  
+
+
+
+
+    
+
+    <!-- Footer-->
+    <footer class="footer pt-lg-5 pt-4 bg-dark text-light">
+      <div class="container mb-4 py-4 pb-lg-5">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6 col-sm-4">
+            <div class="mb-4 pb-sm-3"><a class="d-inline-block" href="index.html"><img src="img/logo/logo-light.svg" width="116" alt="Logo"></a></div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-4"><a class="btn btn-icon btn-translucent-light btn-xs rounded-circle ms-2" href="#"><i class="fi-facebook"></i></a><a class="btn btn-icon btn-translucent-light btn-xs rounded-circle ms-2" href="#"><i class="fi-twitter"></i></a><a class="btn btn-icon btn-translucent-light btn-xs rounded-circle ms-2" href="#"><i class="fi-telegram"></i></a><a class="btn btn-icon btn-translucent-light btn-xs rounded-circle ms-2" href="#"><i class="fi-messenger"></i></a></div>
+          <!-- Links-->
+          <div class="col-lg-2 col-md-3 col-sm-4">
+            <h3 class="fs-base text-light">Menu</h3>
+            <ul class="list-unstyled fs-sm">
+              <li><a class="nav-link-light" href="#">Regioni tour</a></li>
+              <li><a class="nav-link-light" href="#">Come funziona</a></li>
+              <li><a class="nav-link-light" href="#">La nostra storia</a></li>
+              <li><a class="nav-link-light" href="#">Contatti</a></li>
+            </ul>
+          </div>
+          <!-- Links-->
+          <div class="col-lg-2 col-md-3 col-sm-4">
+            <h3 class="fs-base text-light">Vinbacco</h3>
+            <ul class="list-unstyled fs-sm">
+              <li><a class="nav-link-light" href="#">Cookie Police</a></li>
+              <li><a class="nav-link-light" href="#">Termini e condizioni Italiano</a></li>
+            </ul>
+          </div>
+          <!-- Links-->
+          <div class="col-lg-2 col-md-3 col-sm-4">
+            <h3 class="fs-base text-light">Luogo</h3>
+            <ul class="list-unstyled fs-sm">
+              <li><a class="nav-link-light" href="#">Vinbacco Rushnet Srl-Via Vincenzo Monti 8 Milano - Italia | P. IVA 11194740962</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="py-4 border-top border-light">
+        <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between py-2">
+          <!-- Copyright-->
+          <p class="order-lg-1 order-2 fs-sm mb-2 mb-lg-0"><span class="text-light opacity-60">&copy; Copyright © 2021 Vinbacco. All Rights Reserved.</span></p>
+          <div class="d-flex flex-lg-row flex-column align-items-center order-lg-2 order-1 ms-lg-4 mb-lg-0 mb-4">
+            <!-- Links-->
+            <div class="d-flex flex-wrap fs-sm mb-lg-0 mb-4 pe-lg-4"><a class="nav-link-light px-2 mx-1" href="#">Cookie Police</a></div>
+            <div class="d-flex align-items-center">
+              <!-- Language switcher-->
+              <div class="dropdown"><a class="nav-link nav-link-light dropdown-toggle fs-sm align-items-center p-0 fw-normal" href="#" id="langSwitcher" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-globe mt-n1 me-2 align-middle"></i>Eng</a>
+                <ul class="dropdown-menu dropdown-menu-dark my-1" aria-labelledby="langSwitcher">
+                  <li><a class="dropdown-item text-nowrap py-1" href="#"><img class="me-2" src="img/flags/de.png" width="20" alt="Deutsch">Ita</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Filters sidebar toggle button (mobile)-->
+    <button class="btn btn-primary btn-sm w-100 rounded-0 fixed-bottom d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-sidebar"><i class="fi-filter me-2"></i>Filters</button>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/leaflet/dist/leaflet.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/nouislider/dist/nouislider.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+  </body>
+</html>
